@@ -38,8 +38,6 @@ namespace sdds {
        if (source != nullptr) {
            destination = new char[strlen(source) + 1];
            strcpy(destination, source);
-
-           //edited here
            source = nullptr;
        }
    }
@@ -58,7 +56,7 @@ namespace sdds {
        }
 
        return number;
-   }//done
+   }
 
    int Utils::getint(int min, int max, const char* prompt, const char* errMes) {
 
@@ -90,5 +88,5 @@ namespace sdds {
            }
        }
    }
-   
+
 }//namespace sdds
