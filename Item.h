@@ -1,12 +1,3 @@
-/*
-Name: Amir Vassell
-Seneca Email: arvassell@myseneca.ca
-Student ID: 154737209
-Date Completed: April 10, 2021
-
-I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
-*/
-
 #ifndef	ITEM_H_
 #define ITEM_H_
 #include "iProduct.h"
@@ -14,7 +5,7 @@ I have done all the coding by myself and only copied the code that my professor 
 #include "Utils.h"
 namespace sdds {
 
-	class Item : public iProduct {
+	class Item : public iProduct { //inheriting funcitons from iProduct
 	private:
 		double m_price; //a double for price
 		int m_quantity_on_hand; //an integer for quantity on hand
@@ -48,7 +39,7 @@ namespace sdds {
 		void linear(bool isLinear); //sets the linear flag attribute to true or false
 
 		/*
-		create a modifier called clear that does not accept any argument and sets 
+		modifier called clear that does not accept any argument and sets 
 		the state of the Item object back to good, by resetting the state attribute.
 		*/
 		void clear();
@@ -57,7 +48,7 @@ namespace sdds {
 		bool operator==(const char* description)const;
 
 		std::ofstream& save(std::ofstream& ofstr) const;
-		std::ifstream& load(std::ifstream& ifstr); //do this
+		std::ifstream& load(std::ifstream& ifstr);
 		std::ostream& display(std::ostream& ostr)const;
 		int readSku(std::istream& istr);
 		std::istream& read(std::istream& istr);
@@ -85,10 +76,5 @@ namespace sdds {
 		}
 
 	};//CLASS ITEM
-
-
 }//NAMESPACE SDDS
-
-
-
 #endif

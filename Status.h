@@ -1,12 +1,3 @@
-/*
-Name: Amir Vassell
-Seneca Email: arvassell@myseneca.ca
-Student ID: 154737209
-Date Completed: April 10, 2021
-
-I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
-*/
-
 #ifndef STATUS_H_
 #define STATUS_H_
 
@@ -41,10 +32,5 @@ namespace sdds {
 	};
 
 	std::ostream& operator<<(std::ostream&, const Status&);
-
-
-
 }//namespace sdds
-
-
 #endif

@@ -1,12 +1,3 @@
-/*
-Name: Amir Vassell
-Seneca Email: arvassell@myseneca.ca
-Student ID: 154737209
-Date Completed: April 10, 2021
-
-I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
-*/
-
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
@@ -27,7 +18,6 @@ namespace sdds {
 		setEmpty();
 	}
 
-
 	///////////////////////////////////////////////////////////////////
 						//RULE OF THREE//
 	Item::Item(const Item& i) {
@@ -46,7 +36,6 @@ namespace sdds {
 			m_quantity_needed = i.m_quantity_needed;
 			m_linear_flag = i.m_linear_flag;
 			m_sku = i.m_sku;
-			//state_of_item = i.state_of_item; //check back with here
 		}
 
 		return *this;
@@ -76,8 +65,6 @@ namespace sdds {
 		else {
 			return false;
 		}
-		//return state_of_item; //here is where if(p) returns true because m_description is empty
-		//check back with this function
 	}
 
 	int Item::operator-=(int qty) {
@@ -94,7 +81,6 @@ namespace sdds {
 
 	void Item::clear() {
 		state_of_item.clear();
-		//state_of_item = state_of_item.clear(); //check back with here
 	}
 
 	bool Item::operator==(int sku) const {
@@ -123,7 +109,6 @@ namespace sdds {
 	}
 
 	std::ifstream& Item::load(std::ifstream& ifstr) {
-		//check back with this function
 		if (m_item_description != nullptr) {
 			delete[] m_item_description;
 			m_item_description = nullptr;
@@ -139,14 +124,11 @@ namespace sdds {
 		ifstr >> m_quantity_needed;
 		ifstr >> m_price;
 		
-
 		return ifstr;
 	}
 
 	std::ostream& Item::display(std::ostream& ostr)const {
 		if (state_of_item) {
-			//if (this>m_linear_flag == true) {
-			//	//do this soon
 				if (m_linear_flag == true) {
 
 					ostr << m_sku << " | ";
@@ -173,36 +155,26 @@ namespace sdds {
 					ostr << m_quantity_needed;
 					ostr << " | ";
 					ostr.width(7);
-					//ostr.precision(2);
 					ostr << m_price;
 					ostr << " |";
 
 				}//if (m_linear_flag == true)
 				else {
-					//if (this->m_linear_flag == false) {
 						ostr << "AMA Item:\n";
 						ostr << m_sku << ": " << m_item_description << "\n";
 						ostr << "Quantity Needed: " << m_quantity_needed << "\n";
 						ostr << "Quantity Available: " << m_quantity_on_hand << "\n";
 						ostr << "Unit Price: $";
-						//ostr.precision(2);
 						ostr << m_price << "\n";
 						
 						double needed_purchase_fund = m_price * (m_quantity_needed - m_quantity_on_hand);
-						/*ostr << "Needed Purchase Fund: $";
-						ostr.precision(2);
-						ostr << needed_purchase_fund;
-						ostr << endl;*/
 						ostr.fill(0);
 						ostr << "Needed Purchase Fund: $" << fixed << setprecision(2) << needed_purchase_fund << endl;
-					//}//if (this->m_linear_flag == false)
 				}
-			//}//if (this->m_linear_flag == true)
 		}//if (state_of_item.operator bool())
 		else {
 			ostr << int(this->state_of_item) << ": " << (const char*)(this->state_of_item);
 		}
-
 		return ostr;
 	}
 
@@ -222,12 +194,10 @@ namespace sdds {
 
 		cout << "AMA Item:"<< endl << "SKU: " << m_sku << endl;
 		cout << "Description: ";
-		//cin.ignore();
 		istr.ignore();
-		//reading description
+	
 		string getDescription;
 		getline(istr, getDescription, '\n');
-		//ut.alocpy(m_item_description, getDescription.c_str());
 		m_item_description = new char[getDescription.length() + 1];
 		strcpy(m_item_description, getDescription.c_str());
 
@@ -265,12 +235,6 @@ namespace sdds {
 		if (istr.fail()) {
 			state_of_item = "\nConsole entry failed!\n";
 		}
-
-
 		return istr;
-
 	}
-
-
-
 }//NAMESPACE SDDS

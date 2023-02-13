@@ -1,12 +1,3 @@
-/*
-Name: Amir Vassell
-Seneca Email: arvassell@myseneca.ca
-Student ID: 154737209
-Date Completed: April 10, 2021
-
-I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
-*/
-
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
@@ -47,11 +38,7 @@ namespace sdds {
 
 	AidMan::~AidMan() {
 		main_menu.clearMemory();
-		//delete[] m_filename;
-		
-		deallocate();
-		//delete[] m_iProdArray; /////here
-		
+		deallocate();		
 	}
 
 	void AidMan::save() {
@@ -61,11 +48,8 @@ namespace sdds {
 			for (int i = 0; i < m_num_of_iprod_items; i++)
 			{
 				m_iProdArray[i]->save(ofstr);
-				//with a \n at the end
 				ofstr << '\n';
 			}
-			//CONTINUE HERE
-
 			ofstr.close();
 		}
 		else {}
@@ -217,8 +201,6 @@ namespace sdds {
 		else {
 			cout << "The list is empty!\n\n";
 		}
-
-
 		return numOfItemsPrinted;
 	}
 
@@ -229,16 +211,12 @@ namespace sdds {
 			if (m_iProdArray[i]->operator==(sku)) {
 				foundIndex = i;
 			}
-			
 		}
-
 		return foundIndex;
 	}
 
 	void AidMan::remove(int index) {
 		delete m_iProdArray[index];
-		//m_iProdArray[index] = nullptr;
-		//HOW TO SHIFT THEM OVER
 		iProduct* temp;
 		for (int i = index; i < m_num_of_iprod_items; i++)
 		{
@@ -246,19 +224,11 @@ namespace sdds {
 			m_iProdArray[i] = temp;
 			temp = nullptr;
 		}
-		/////////////////////////
-
 		m_num_of_iprod_items -= 1;
-		
-		
-
 	}
 
-	void AidMan::update() {
-		/////////////
-		
+	void AidMan::update() {		
 		char* description = nullptr;
-		//delete[] description;
 		string descriptionToLookFor;
 		int numFound;
 		int qty;
@@ -288,7 +258,6 @@ namespace sdds {
 					cout << "Aborted!\n\n";
 				}
 				else if (option == 1) {
-					//ADD//
 					if (m_iProdArray[index]->qty() == m_iProdArray[index]->qtyNeeded()) {
 						cout << "Quantity Needed already fulfilled!\n\n";
 					}
@@ -380,7 +349,6 @@ namespace sdds {
 		string descriptionToLookFor;
 		char* description{};
 		while (flag == 0) {
-			
 			int numberOfChosen = menu();
 			if (numberOfChosen != 0 && m_filename == nullptr && numberOfChosen != 7) {
 				numberOfChosen = 7;
@@ -429,7 +397,6 @@ namespace sdds {
 							cout << "Aborted\n";
 						}
 						else {
-							//cout << "SKU: ";
 							int skuRead;
 							int index;
 							if (option == 1) {
@@ -532,5 +499,4 @@ namespace sdds {
 			}//if-else block
 		}//while block
 	}//function block
-
 }//namespace sdds

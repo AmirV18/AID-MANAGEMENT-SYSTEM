@@ -1,12 +1,3 @@
-/* ------------------------------------------------------
-Final project Milestone 56
-Filename: main56.cpp
-Version 1.0
-Author: Fardad Soleimanloo   2022-04-01
-Revision History
------------------------------------------------------------
-Date          Reason
------------------------------------------------------------*/
 #include <iostream>
 #include <fstream>
 #include "AidMan.h"

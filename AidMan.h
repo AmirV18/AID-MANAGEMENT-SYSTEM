@@ -1,11 +1,3 @@
-/*
-Name: Amir Vassell
-Seneca Email: arvassell@myseneca.ca
-Student ID: 154737209
-Date Completed: April 10, 2021
-
-I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
-*/
 #ifndef AIDMAN_H_
 #define AIDMAN_H_
 
@@ -14,12 +6,11 @@ I have done all the coding by myself and only copied the code that my professor 
 #include "iProduct.h"
 using namespace std;
 
-
 namespace sdds {
 	const int sdds_max_num_items = 100;
 
 	/*
-	Create a class called AidMan that offers a Menu with the list 
+	Class called AidMan that offers a Menu with the list 
 	of tasks needed to be done to manage the preparation of 
 	products to be shipped to places in need.
 	*/
@@ -58,29 +49,7 @@ namespace sdds {
 		AidMan& operator=(const AidMan&) = delete;
 		~AidMan();
 
-
-		/*
-		In a loop, the run function will keep 
-		displaying the menu by calling the menu() 
-		function and awaits the user's entry. Then 
-		after each selection, based on the user's entry, 
-		it will execute the task chosen from the menu.
-
-		The run function exits when the user selects 
-		0, at which point it will print 
-		"Exiting Program!"<NEWLINE> and terminates.
-
-		For now, when a task is selected just print 
-		the task name as follows:
-		<NEWLINE>****Task Name****<2 NEWLINES>
-		for example print the following if option 4 
-		is selected: 
-		<NEWLINE>****Update Quantity****<2 NEWLINES>
-		*/
 		void run(); //runs the whole application
-
-
-
 	};
 
 }//namespace sdds

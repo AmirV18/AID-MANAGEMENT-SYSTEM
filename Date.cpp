@@ -1,12 +1,3 @@
-/*
-Name: Amir Vassell
-Seneca Email: arvassell@myseneca.ca
-Student ID: 154737209
-Date Completed: April 10, 2021
-
-I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
-*/
-
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
@@ -30,8 +21,6 @@ namespace sdds {
 		int cmonth;
 
 		ut.getSystemDate(&cyear, &cmonth);
-
-		//if (allValid() == false) {
 			if (this->Year < cyear || this->Year > MAXYEARVALUE) {//invalid
 				State = "Invalid year in date";
 				State = 1;
@@ -49,20 +38,11 @@ namespace sdds {
 						State = 3;
 						return false;
 					}
-					else {//ERASE THIS ELSE IF PROBLEM ARISE
-						State.clear(); //could be here
+					else {
+						State.clear();
 					}
-					
-					
-
 				}
 			}
-	//REVERT TO THIS IF PROBLEM		State.clear(); //could be here
-		/*}
-		else {
-			State.clear();
-		}*/
-
 		return rValue;
 	}
 
@@ -76,14 +56,11 @@ namespace sdds {
 	}
 
 	Date::Date(const int year, const int month, const int day ) {
-		//if (allValid()) {
-
 			Year = year;
 			Month = month;
 			Day = day;
 			Formatted = true;
 			validate();
-		//}
 	}
 
 	bool Date::operator== (Date& d) {
@@ -143,7 +120,6 @@ namespace sdds {
 				ostr << Day;
 			}
 		}
-
 		return ostr;
 	}
 
@@ -151,7 +127,6 @@ namespace sdds {
 		int date;
 		istr >> date;
 		if (istr.good()) {
-
 			if (date < 99999)
 			{
 				Day = date % 100;
@@ -171,9 +146,6 @@ namespace sdds {
 				Year = 2000 + date;
 				Formatted = true;
 			}
-
-		
-
 			if (validate() == false) {
 				istr.setstate(ios::failbit);
 			}
@@ -183,7 +155,6 @@ namespace sdds {
 		}
 		
 		return istr;
-
 	}
 	
 	std::ostream& operator<<(std::ostream& ostr, const Date& d) {
@@ -195,13 +166,4 @@ namespace sdds {
 		d.read(istr);
 		return istr;
 	}
-
-	
-
-
-
-
-
-
-
 }//namespace sdds

@@ -1,12 +1,3 @@
-/*
-Name: Amir Vassell
-Seneca Email: arvassell@myseneca.ca
-Student ID: 154737209
-Date Completed: April 10, 2021
-
-I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
-*/
-
 #ifndef DATE_H_
 #define DATE_H_
 
@@ -40,7 +31,7 @@ namespace sdds {
 		bool operator<= (Date&);
 		bool operator>= (Date&);
 	
-		 const Status& state(); //accessor method returns a constant reference to the State of the Date.
+		const Status& state(); //accessor method returns a constant reference to the State of the Date.
 		
 
 		/*set the Formatted flag(attribute) of the Date.
@@ -56,18 +47,6 @@ namespace sdds {
 
 	std::ostream& operator<<(std::ostream&, const Date&);
 	std::istream& operator>>(std::istream&, Date&);
-
-
-
-
-
-
-
-
-
-
-
-
 }//namespace sdds
 
 #endif

@@ -1,12 +1,3 @@
-/*
-Name: Amir Vassell
-Seneca Email: arvassell@myseneca.ca
-Student ID: 154737209
-Date Completed: April 10, 2021
-
-I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
-*/
-
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
@@ -14,7 +5,6 @@ I have done all the coding by myself and only copied the code that my professor 
 #include <string>
 #include <fstream>
 #include <string.h>
-//#include "Date.h"
 #include "Item.h"
 #include "Perishable.h"
 
@@ -33,19 +23,15 @@ namespace sdds {
 
 	Perishable& Perishable::operator=(const Perishable& p) {
 		if (this != &p) {
-			(Item&)*this = p; //change made here
-			//(Date&)*this = p.expiry();
+			(Item&)*this = p; 
 			m_expiry_date = p.m_expiry_date;
 			Item::operator=(p);
-			//clearMemory();
 			ut.alocpy(m_handling_instructions, p.m_handling_instructions);
 		}
-
 		return *this;
 	}
 
 	Perishable::~Perishable() {
-		//clearMemory(); //CHANGED HERE
 		delete[] m_handling_instructions;
 		m_handling_instructions = nullptr;
 	}
@@ -68,18 +54,10 @@ namespace sdds {
 				ofstr << m_handling_instructions;
 			}
 			ofstr << "\t";
-
-			//SUPPOSED TO WRITE AN UNFORMATTED COPY
-		//	m_expiry_date.write(ofstr);//check back with here
-			//(Date&)m_expiry_date.write(ofstr);//check back with here
-			// 
-			// 
-			//ofstr << m_expiry_date;//HERE WAS THE LAST CHANGE
 			Date temp_date = m_expiry_date;
 			temp_date.formatted(false);
 			temp_date.write(ofstr);
 		}
-
 		return ofstr;
 	}
 
@@ -89,14 +67,12 @@ namespace sdds {
 			delete[] m_handling_instructions;
 			m_handling_instructions = nullptr;
 		}
-		//m_handling_instructions = nullptr;
+
 		ut.extractChar(ifstr, '\t');
 		string handling_instructions;
 		getline(ifstr, handling_instructions, '\t');
-		if (handling_instructions.length() > 0) {//here
-			/*m_handling_instructions = new char[handling_instructions.length() + 1];
-			strcpy(m_handling_instructions, handling_instructions.c_str());*/
-			ut.alocpy(m_handling_instructions, handling_instructions.c_str());//////
+		if (handling_instructions.length() > 0) {
+			ut.alocpy(m_handling_instructions, handling_instructions.c_str());
 		}
 		else {
 			m_handling_instructions = nullptr;
@@ -105,11 +81,10 @@ namespace sdds {
 		
 		ifstr >> m_expiry_date;
 		
-		ifstr.ignore();//same here
+		ifstr.ignore();
 		if (ifstr.fail()) {
 			Item::state_of_item = "Input file stream read (perishable) failed!";
 		}
-		
 		return ifstr;
 	}
 
@@ -126,7 +101,6 @@ namespace sdds {
 				else {
 					ostr << " ";
 				}
-				//m_expiry_date.write(ostr);
 				ostr << m_expiry_date;
 			}
 			else {
@@ -143,7 +117,6 @@ namespace sdds {
 				}
 			}
 		}
-
 		return ostr;
 	}
 
@@ -155,8 +128,8 @@ namespace sdds {
 		}
 
 		cout << "Expiry date (YYMMDD): ";
-		m_expiry_date.read(istr);//When ivalid date is entered garbage hans
-		ut.extractChar(istr, '\n');//CHANGE MADE
+		m_expiry_date.read(istr);
+		ut.extractChar(istr, '\n');
 		cout << "Handling Instructions, ENTER to skip: ";
 		char key_ch = istr.peek();
 		if (key_ch != '\n') {
@@ -170,7 +143,6 @@ namespace sdds {
 		if (istr.fail()) {
 			this->state_of_item = "Perishable console date entry failed!";
 		}
-
 		return istr;
 	}
 

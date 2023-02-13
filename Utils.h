@@ -1,12 +1,3 @@
-/*
-Name: Amir Vassell
-Seneca Email: arvassell@myseneca.ca
-Student ID: 154737209
-Date Completed: April 10, 2021
-
-I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
-*/
-
 #ifndef SDDS_UTILS_H
 #define SDDS_UTILS_H
 namespace sdds {
@@ -31,7 +22,7 @@ namespace sdds {
         deletes the destination dynamic array and sets it to null
         if the source is not null
         Allocates memory in the destination to the size of the source and copies the source into it.*/
-      void alocpy(char*& destination, const char* source); //continue from here
+      void alocpy(char*& destination, const char* source);
 
       //===============================================
       /*If the prompt is not null, it will display it. Then it 
