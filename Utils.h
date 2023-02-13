@@ -1,7 +1,7 @@
 #ifndef SDDS_UTILS_H
 #define SDDS_UTILS_H
 namespace sdds {
-   const int sdds_testYear = 2022;
+   const int sdds_testYear = 2023; //change the date here
    const int sdds_testMon = 03;
    const int sdds_testDay = 31;
    class Utils {
@@ -15,7 +15,7 @@ namespace sdds {
       int daysOfMon(int mon, int year)const;
       // Puts the system date in test mode, where getSystemDate() function will return 2022, 03, 31
       // or whatever the three constant test dates are set to
-      void testMode(bool testmode = true);
+      void testMode(bool testmode = false);
 
       //=====================================
       /*Safely allocates memory in destination and copies the source into it.
